@@ -21,6 +21,15 @@ public class Users {
         this.password = password;
     }
 
+    public Users(Users formUser) {
+
+        this.firstName = formUser.getFirstName();
+        this.lastName = formUser.getLastName();
+        this.email = formUser.getEmail();
+        this.userName = formUser.getUserName();
+        this.password = formUser.getPassword();
+    }
+
     public String getFirstName() {
         return firstName;
     }
