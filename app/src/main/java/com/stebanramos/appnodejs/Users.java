@@ -1,5 +1,7 @@
 package com.stebanramos.appnodejs;
 
+import android.util.Log;
+
 public class Users {
 
     private String firstName;
@@ -10,6 +12,8 @@ public class Users {
 
 
     public Users(String firstName, String lastName, String email, String userName, String password) {
+        Log.i("d_funciones","Users Users()");
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

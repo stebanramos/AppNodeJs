@@ -1,6 +1,5 @@
 package com.stebanramos.appnodejs;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -12,6 +11,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class PostUser extends AsyncTask<String, Void, String> {
 
@@ -25,8 +25,8 @@ public class PostUser extends AsyncTask<String, Void, String> {
         String url_Api = params[0];
         String data = params[1];
 
-        Log.i("PostUser doInBackground Parametros", "Url_Api = " + url_Api);
-        Log.i("PostUser doInBackground Parametros", "Data = "  + data);
+        Log.i("d_funciones", "PostUser doInBackground Parametros Url_Api = " + url_Api);
+        Log.i("d_funciones", "PostUser doInBackground Parametros Data = "  + data);
 
         try {
 
@@ -59,22 +59,22 @@ public class PostUser extends AsyncTask<String, Void, String> {
             } else {
                 //error from server
                 inputStream = httpURLConnection.getErrorStream();
-                Log.i("PostUser error from server statusCode", String.valueOf(statusCode));
-                Log.i("PostUser error from server getRequestMethod", String.valueOf(httpURLConnection.getRequestMethod()));
-                Log.i("PostUser error from server getResponseMessage", String.valueOf(httpURLConnection.getResponseMessage()));
-                Log.i("PostUser error from server getErrorStream", httpURLConnection.getErrorStream().toString());
+                Log.i("d_funciones","PostUser error from server statusCode " + statusCode);
+                Log.i("d_funciones","PostUser error from server getRequestMethod " + httpURLConnection.getRequestMethod());
+                Log.i("d_funciones","PostUser error from server getResponseMessage " + httpURLConnection.getResponseMessage());
+                Log.i("d_funciones","PostUser error from server getErrorStream " + httpURLConnection.getErrorStream().toString());
                 error = true;
 
 
             }
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.ISO_8859_1));
             StringBuilder response = new StringBuilder();
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 response.append(line);
             }
-            Log.i("PostUser Response", String.valueOf(response));
+            Log.i("d_funciones","PostUser Response " + response);
             bufferedReader.close();
             inputStream.close();
             httpURLConnection.disconnect();
@@ -99,7 +99,7 @@ public class PostUser extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String response) {
         super.onPostExecute(response);
-        Log.i("PostUser onPostExecute response", response.toString());
+        Log.i("d_funciones","PostUser onPostExecute response " + response);
 
         if (response == null){
             delegate.processFinish("ERROR");

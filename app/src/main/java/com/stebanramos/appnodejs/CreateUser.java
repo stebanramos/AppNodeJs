@@ -1,6 +1,7 @@
 package com.stebanramos.appnodejs;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONObject;
 
@@ -11,11 +12,13 @@ public class CreateUser {
 
 
     public CreateUser(Context context, Users user) {
+        Log.i("d_funciones","CreateUser CreateUser()");
         this.context = context;
         this.user = user;
     }
 
     public void postUser(){
+        Log.i("d_funciones","CreateUser postUser()");
         try {
             String urlApi = "http://167.172.245.38:3000/API/users/AddUser";
 
