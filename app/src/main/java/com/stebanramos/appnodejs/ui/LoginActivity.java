@@ -1,4 +1,4 @@
-package com.stebanramos.appnodejs;
+package com.stebanramos.appnodejs.ui;
 
 import static com.stebanramos.appnodejs.PostUser.postUserResponse;
 
@@ -8,14 +8,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import com.stebanramos.appnodejs.PostUser;
 import com.stebanramos.appnodejs.databinding.ActivityLoginBinding;
+import com.stebanramos.appnodejs.utilies.AsyncResponse;
+import com.stebanramos.appnodejs.utilies.Preferences;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity implements AsyncResponse{
+public class LoginActivity extends AppCompatActivity implements AsyncResponse {
 
     private ActivityLoginBinding binding;
 
@@ -25,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse{
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
         Log.i("d_funciones","LoginActivity onCreate()");
     }
 
@@ -54,7 +58,7 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse{
     private void authentication(String sUsername, String sPassword) {
         Log.i("d_funciones","LoginActivity authentication()");
         try {
-            String urlApi = "http://167.172.245.38:3000/API/users/Authentication";
+            String urlApi = "http://10.0.2.2:3000/users/Auth";
 
             JSONObject data = new JSONObject();
 
@@ -87,12 +91,23 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse{
         }
 
         if (output.equals("FINISHED")){
+            try {
+                JSONObject jsonObject = new JSONObject(postUserResponse);
+                if (jsonObject != null && !jsonObject.isNull("token")){
+                    Preferences.set_str(this, "auth_token",jsonObject.get("token").toString());
+                    Intent intent;
+                    if (jsonObject.get("rol").equals("user")){
+                        intent = new Intent(this, MenuActivity.class);
+                    }else{
+                        intent = new Intent(this, AdminActivity.class);
+                    }
 
-            if (postUserResponse.equals("ok")){
-                Intent intent = new Intent(this, WelcomeActivity.class);
-                startActivity(intent);
-            }else {
-                Toast.makeText(this, postUserResponse, Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(this, postUserResponse, Toast.LENGTH_LONG).show();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
 
         }

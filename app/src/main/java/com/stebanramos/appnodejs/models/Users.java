@@ -1,4 +1,4 @@
-package com.stebanramos.appnodejs;
+package com.stebanramos.appnodejs.models;
 
 import android.util.Log;
 

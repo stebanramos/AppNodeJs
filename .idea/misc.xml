@@ -3,9 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/drawable/border_buttons_dialogs.xml" value="0.1" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/drawable/border_dialogs.xml" value="0.1" />
         <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/drawable/ic_login.xml" value="0.2795" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/activity_admin.xml" value="0.25" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/activity_categorias.xml" value="0.22" />
         <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/activity_login.xml" value="0.3625" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/activity_menu.xml" value="0.1546875" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/activity_productos.xml" value="0.1546875" />
         <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/activity_register.xml" value="0.3625" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/activity_welcome.xml" value="0.18" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/dialog_add_categoria.xml" value="0.31431159420289856" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/dialog_add_producto.xml" value="0.3307291666666667" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/list_item.xml" value="0.3307291666666667" />
+        <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/layout/product_card.xml" value="0.264" />
         <entry key="..\:/Proyectos/Android/AppNodeJs/app/src/main/res/xml/network_security_config.xml" value="0.18541666666666667" />
       </map>
     </option>

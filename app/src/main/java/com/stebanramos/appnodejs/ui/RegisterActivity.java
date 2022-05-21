@@ -1,4 +1,4 @@
-package com.stebanramos.appnodejs;
+package com.stebanramos.appnodejs.ui;
 
 import static com.stebanramos.appnodejs.PostUser.postUserResponse;
 
@@ -10,8 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.stebanramos.appnodejs.databinding.ActivityLoginBinding;
+import com.stebanramos.appnodejs.CreateUser;
 import com.stebanramos.appnodejs.databinding.ActivityRegisterBinding;
+import com.stebanramos.appnodejs.models.Users;
+import com.stebanramos.appnodejs.utilies.AsyncResponse;
 
 public class RegisterActivity extends AppCompatActivity implements AsyncResponse {
 
